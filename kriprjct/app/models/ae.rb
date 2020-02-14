@@ -1,3 +1,0 @@
-class Ae < ApplicationRecord
-  
-end
