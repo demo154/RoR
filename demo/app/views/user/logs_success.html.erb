@@ -1,0 +1,66 @@
+<!--Displaying checkin and checkout of an employee-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Search_ Success </title>
+    <meta charset="UTF-8">
+    <title>Employee Info</title>
+</head>
+<body>
+        <header>
+                <div id="logo">
+                        <a href="{{url_for('dashboard')}}">
+                            <img src="{{url_for('static', filename='images/df_logo-1.png')}}">
+                        </a>
+                    </div>
+                <div id="Data">
+                    <h1>Dashboard</h1>
+                </div>
+                <div id="signout">
+                        <a href="{{url_for('login')}}"><img src="{{url_for('static', filename='images/logout.png')}}" width="80"></a>
+                </div>
+                </header>
+                <nav>
+                	<ul id="nav">
+                		<li id="Dash1"><%= link_to 'Dashboard', {:action => 'dashboard'} %></li>
+                		<li class="i_house"><%= link_to 'Add Employee', {:action => 'add'} %></li>
+                				<li class="i_house"><%= link_to ' Employee Details', {:action => 'employee'} %></li>
+                		<li class="i_house"><%= link_to'Update Employee',{:action => 'employee'} %></li>
+                		<li class="i_house"><%= link_to 'Delete Employee',{:action => 'delete'} %></li>
+                		<li class="i_house"><%= link_to 'Quick Search', {:action=>'search'}%></li>
+                		<li class="i_house"><%= link_to 'Logs', {:action=>'logs'} %> </li>
+
+                        <li class="i_house"><% link_to 'Logs Search', {:action=>'logs_search'} %> </li>
+
+                		<li class="i_house"><% link_to 'Sign Out', {:action=>'login'} %><span></li>
+                	</ul>
+                </nav>
+
+   <div id="container"   >
+
+
+
+<table>
+<!--Showing employee information in table-->
+    <tr>
+    <th>Emp_id</th>
+    <th>Emp_name</th>
+    <th>Check-In</th>
+    <th>Check-Out</th>
+    </tr>
+    {% for row in msg %}
+            <tr>
+               <td>{{row[0]}}</td>
+               <td>{{row[1]}}</td>
+               <td> {{ row[2]}}</td>
+               <td>{{row[3]}}</td>
+
+            </tr>
+         {% endfor %}
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!--Displaying employee log details form-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Logs table </title>
+    <meta charset="UTF-8">
+    <title>Employee Info</title>
+</head>
+<body>
+        <header>
+                <div id="logo">
+                      <%=image_tag ('df_logo-1.png')%>
+
+                    </div>
+                <div id="Data">
+                    <h1>Dashboard</h1>
+                </div>
+                <div id="signout">
+          	<%=image_tag('logout.png',:width => 100 ) %>
+                </div>
+        </header>
+        <!--Side navbar-->
+        <nav>
+        	<ul id="nav">
+        		<li id="Dash1"><%= link_to 'Dashboard', {:action => 'dashboard'} %></li>
+        		<li class="i_house"><%= link_to 'Add Employee', {:action => 'add'} %></li>
+        				<li class="i_house"><%= link_to ' Employee Details', {:action => 'employee'} %></li>
+        		<li class="i_house"><%= link_to'Update Employee',{:action => 'employee'} %></li>
+        		<li class="i_house"><%= link_to 'Delete Employee',{:action => 'delete'} %></li>
+        		<li class="i_house"><%= link_to 'Quick Search', {:action=>'search'}%></li>
+        		<li class="i_house"><%= link_to 'Logs', {:action=>'logs'} %> </li>
+
+                <li class="i_house"><% link_to 'Logs Search', {:action=>'logs_search'} %> </li>
+
+        		<li class="i_house"><% link_to 'Sign Out', {:action=>'login'} %><span></li>
+        	</ul>
+        </nav>
+   <div id="container">
+
+
+         <h1>Employee Log Details</h1>
+
+<table>
+    <!--Displaying Employee log details-->
+    <tr>
+    <th>EmpLoyee Id</th>
+    <th>Employee Name</th>
+    <th>Check In Time</th>
+    <th>Check Out Time</th>
+    </tr>
+    {% for row in data %}
+            <tr>
+               <td>{{row[0]}}</td>
+               <td>{{row[1]}}</td>
+               <td> {{ row[2]}}</td>
+               <td>{{row[3]}}</td>
+
+            </tr>
+         {% endfor %}
+</table>
+</div>
+</body>
+</html>

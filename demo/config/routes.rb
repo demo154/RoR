@@ -1,0 +1,20 @@
+Rails.application.routes.draw do
+  get 'user/add_file'
+  get 'user/add'
+  get 'user/add_success'
+  get 'user/dashboard'
+  get 'user/delete_success'
+  get 'user/delete'
+  get 'user/employee'
+  get 'user/file_success'
+  get 'user/logs_search'
+  get 'user/logs_success'
+  get 'user/logs'
+  get 'user/search_success'
+  get 'user/search'
+  get 'user/today_check_in'
+  get 'user/update_success'
+  get 'user/update'
+  root 'user#login'
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+end
